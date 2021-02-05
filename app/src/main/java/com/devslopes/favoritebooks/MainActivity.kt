@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.devslopes.favoritebooks.databinding.ActivityMainBinding
 import com.devslopes.favoritebooks.models.Book
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.book_list
+import kotlinx.android.synthetic.main.activity_main.view.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,13 +19,17 @@ class MainActivity : AppCompatActivity() {
 
         binding.bookList.apply {
             adapter = BooksAdapter(BookRepository.getBooks(this@MainActivity)
-            )/*{bookModel ->
-                val intent = Intent(this@MainActivity,BookRepository::class.java)
-                intent.putExtra(BookRepository.CATEGORY,categoryModel.title)
-                startActivity(intent)
-            }
-*/
-            layoutManager = LinearLayoutManager(this@MainActivity)
+            )
+
+
+
+
+
+
+            layoutManager = LinearLayoutManager(this@MainActivity,
+                    LinearLayoutManager.VERTICAL,
+            false)
+
 
             }
 
