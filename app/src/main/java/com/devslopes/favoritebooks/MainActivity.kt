@@ -4,11 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.devslopes.favoritebooks.databinding.ActivityMainBinding
 import com.devslopes.favoritebooks.models.Book
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.book_list
 import kotlinx.android.synthetic.main.activity_main.view.*
+import java.util.jar.Attributes
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,9 +20,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.bookList.apply {
-            adapter = BooksAdapter(BookRepository.getBooks(this@MainActivity)
-            )
-
+            adapter = BooksAdapter(BookRepository.getBooks(this@MainActivity))
 
 
 

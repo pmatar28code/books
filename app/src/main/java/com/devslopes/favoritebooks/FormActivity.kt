@@ -2,6 +2,7 @@ package com.devslopes.favoritebooks
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.devslopes.favoritebooks.databinding.ActivityFormBinding
 import com.devslopes.favoritebooks.models.Book
@@ -14,20 +15,27 @@ class FormActivity: AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_form)
 
+
+
         val binding = ActivityFormBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val fBook = Book(
-                title = form_title.toString(),
-                author = form_author.toString(),
-                genre = form_genre.toString(),
-                length = form_length.toString()
-        )
 
-        form_button.setOnClickListener {  BookRepository.addBook(fBook,this)
 
+        form_button.setOnClickListener {
+            val fBook = Book(
+                    title =  binding.titleEdit.text.toString(),
+                    author = binding.authorEdit.text.toString(),
+                    genre =  binding.genreEdit.text.toString(),
+                    length = binding.lenghtEdit.text.toString()
+
+            )
+            Log.v("object created book","book: $fBook")
+            BookRepository.addBook(fBook,this)
+            //Log.v("add book from form","add bool: ${BookRepository.addBook(fBook,this)}")
             val intent = Intent(this,MainActivity::class.java)
-            button_to_form.setOnClickListener { startActivity(intent) }}
+            startActivity(intent)
+        }
     }
         //fun createBook() {
             //val formTitle = form_title.toString()
