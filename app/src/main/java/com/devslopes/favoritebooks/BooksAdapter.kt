@@ -21,6 +21,7 @@ class BooksAdapter(
         holder.onBind(booksList[position])
     }
 
+
     class BookViewHolder(
         private val binding: ItemBookBinding
     ) : RecyclerView.ViewHolder(binding.root) {

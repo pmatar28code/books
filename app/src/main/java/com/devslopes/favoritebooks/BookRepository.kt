@@ -52,4 +52,6 @@ object BookRepository {
             .apply()
     }
 
+    fun getListOfBooks()= books
+
 }
