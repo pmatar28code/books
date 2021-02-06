@@ -9,6 +9,7 @@ import com.devslopes.favoritebooks.models.Book
 class BooksAdapter(
     private val booksList: List<Book>
 ) : RecyclerView.Adapter<BooksAdapter.BookViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ItemBookBinding.inflate(inflater)
@@ -22,6 +23,7 @@ class BooksAdapter(
     }
 
 
+
     class BookViewHolder(
         private val binding: ItemBookBinding
     ) : RecyclerView.ViewHolder(binding.root) {
@@ -29,6 +31,9 @@ class BooksAdapter(
         fun onBind(book: Book) = binding.apply {
             title.text = book.title
             subtitle.text = book.author
+            genre.text = book.genre
+            author.text = book.author
+            length.text = book.length
 
         }
     }

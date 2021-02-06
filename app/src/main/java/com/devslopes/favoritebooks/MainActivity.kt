@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
             adapter = BooksAdapter(BookRepository.getBooks(this@MainActivity))
 
             val mIth = ItemTouchHelper(
-                    object : ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT
+                    object : ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.RIGHT
                             ) {
                         override fun onMove(recyclerView: RecyclerView,
                                                      viewHolder: ViewHolder, target: ViewHolder): Boolean {
@@ -44,6 +44,10 @@ class MainActivity : AppCompatActivity() {
                             // booksListFromRepo.removeAt(position)
                              BookRepository.removeBook(booksListFromRepo[position],this@MainActivity)
 
+                            finish();
+                            overridePendingTransition(0, 0);
+                            startActivity(getIntent());
+                            overridePendingTransition(0, 0);
 
 
                         }
@@ -61,8 +65,10 @@ class MainActivity : AppCompatActivity() {
             }
 
 
-        val intent = Intent(this@MainActivity,FormActivity::class.java)
-        button_to_form.setOnClickListener { startActivity(intent) }
+        
+
+            val intent = Intent(this@MainActivity,FormActivity::class.java)
+            button_to_form.setOnClickListener { startActivity(intent) }
 
 
         }
