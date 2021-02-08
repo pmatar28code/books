@@ -24,6 +24,7 @@ class BooksAdapter(
 
 
 
+
     class BookViewHolder(
         private val binding: ItemBookBinding
     ) : RecyclerView.ViewHolder(binding.root) {
@@ -36,5 +37,7 @@ class BooksAdapter(
             length.text = book.length
 
         }
+
+
+        }
     }
-}
